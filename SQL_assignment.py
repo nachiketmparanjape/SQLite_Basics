@@ -33,8 +33,6 @@ with con:
     cur.executemany('INSERT INTO weather VALUES(?,?,?,?,?)',weather)
     cur.execute('SELECT * FROM cities JOIN weather ON name = city')
     
-    
-    
     rows = cur.fetchall()
     cols = [desc[0] for desc in cur.description]
     df = pd.DataFrame(rows, columns=cols)
